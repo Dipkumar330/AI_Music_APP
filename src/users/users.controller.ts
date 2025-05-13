@@ -34,7 +34,7 @@ export class UsersController {
   @Public()
   @ApiOperation({
     description: `
-    This API will be used for creating new user using the admin panel.
+    This API will be used for creating new user using the admin panel..
 
     Figma Screen Reference: AP - User 1.0 To 1.6
         
