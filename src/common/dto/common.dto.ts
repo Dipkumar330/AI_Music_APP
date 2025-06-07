@@ -4,16 +4,27 @@ import {
   ValidateIf,
   IsDateString,
   IsString,
+  IsOptional,
 } from "class-validator";
 
 export class LoginDto {
   @ApiProperty()
   @IsNotEmpty()
+  @IsOptional()
+  phoneNumber: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsOptional()
+  contryCode: string;
+
+  @ApiProperty()
+  @IsOptional()
   @IsString()
   email: string;
 
   @ApiProperty()
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   password: string;
 }

@@ -7,16 +7,16 @@ export abstract class MockModel<T> {
   findOne(): Sort<T> | Lean<T> | Exec<T> {
     return {
       lean: () => ({
-        exec: (): T => this.entityStub,
-      }),
+        exec: (): T => this.entityStub
+      })
     };
   }
 
   find(): Sort<T[]> | Exec<T[]> {
     return {
       sort: () => ({
-        exec: () => [this.entityStub],
-      }),
+        exec: () => [this.entityStub]
+      })
     };
   }
 
@@ -30,21 +30,21 @@ export abstract class MockModel<T> {
 
   findOneAndUpdate(): { exec: () => Promise<T> } {
     return {
-      exec: async (): Promise<T> => this.entityStub,
+      exec: async (): Promise<T> => this.entityStub
     };
   }
 
   lean(): Sort<T> | Lean<T> | Exec<T> {
     return {
       lean: () => ({
-        exec: (): T => this.entityStub,
-      }),
+        exec: (): T => this.entityStub
+      })
     };
   }
 
   updateOne(): Exec<unknown> {
     return {
-      exec: () => {},
+      exec: () => {}
     };
   }
 
@@ -55,8 +55,8 @@ export abstract class MockModel<T> {
   getUserByEmail(): Sort<T> | Lean<T> | Exec<T> {
     return {
       lean: () => ({
-        exec: (): T => this.entityStub,
-      }),
+        exec: (): T => this.entityStub
+      })
     };
   }
 }

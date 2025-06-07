@@ -1,8 +1,8 @@
-import { HttpException, HttpStatus } from "@nestjs/common";
+import { HttpException, HttpStatus } from '@nestjs/common';
 
-export * from "./auth.exception";
-export * from "./type.exception";
-export * from "./connection.exception";
+export * from './auth.exception';
+export * from './type.exception';
+export * from './connection.exception';
 
 export const CustomError = {
   UnknownError(message, statusCode?): unknown {
@@ -10,9 +10,9 @@ export const CustomError = {
       {
         message: message || 'Something went wrong, please try again later!',
         error: 'UnknownError',
-        statusCode: statusCode || HttpStatus.BAD_REQUEST,
+        statusCode: statusCode || HttpStatus.BAD_REQUEST
       },
-      statusCode || HttpStatus.BAD_REQUEST,
+      statusCode || HttpStatus.BAD_REQUEST
     );
-  },
+  }
 };

@@ -1,12 +1,12 @@
-import { HttpException, HttpStatus } from "@nestjs/common";
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 export const AuthExceptions = {
   TokenExpired(): HttpException {
     return new HttpException(
       {
-        message: "Token Expired use RefreshToken",
-        error: "TokenExpiredError",
-        statusCode: HttpStatus.FORBIDDEN,
+        message: 'Token Expired use RefreshToken',
+        error: 'TokenExpiredError',
+        statusCode: HttpStatus.FORBIDDEN
       },
       HttpStatus.FORBIDDEN
     );
@@ -15,9 +15,9 @@ export const AuthExceptions = {
   InvalidToken(): HttpException {
     return new HttpException(
       {
-        message: "Invalid Token",
-        error: "InvalidToken",
-        statusCode: HttpStatus.FORBIDDEN,
+        message: 'Invalid Token',
+        error: 'InvalidToken',
+        statusCode: HttpStatus.FORBIDDEN
       },
       HttpStatus.FORBIDDEN
     );
@@ -26,9 +26,9 @@ export const AuthExceptions = {
   ForbiddenException(): HttpException {
     return new HttpException(
       {
-        message: "This resource is forbidden from this user",
-        error: "UnAuthorizedResourceError",
-        statusCode: HttpStatus.FORBIDDEN,
+        message: 'This resource is forbidden from this user',
+        error: 'UnAuthorizedResourceError',
+        statusCode: HttpStatus.FORBIDDEN
       },
       HttpStatus.FORBIDDEN
     );
@@ -37,9 +37,9 @@ export const AuthExceptions = {
   InvalidUserId(): HttpException {
     return new HttpException(
       {
-        message: "Invalid User Id",
-        error: "InvalidUserId",
-        statusCode: HttpStatus.FORBIDDEN,
+        message: 'Invalid User Id',
+        error: 'InvalidUserId',
+        statusCode: HttpStatus.FORBIDDEN
       },
       HttpStatus.FORBIDDEN
     );
@@ -48,9 +48,9 @@ export const AuthExceptions = {
   InvalidPassword(): HttpException {
     return new HttpException(
       {
-        message: "Please enter valid password",
-        error: "InvalidPassword",
-        statusCode: HttpStatus.UNAUTHORIZED,
+        message: 'Please enter valid password',
+        error: 'InvalidPassword',
+        statusCode: HttpStatus.UNAUTHORIZED
       },
       HttpStatus.UNAUTHORIZED
     );
@@ -59,9 +59,9 @@ export const AuthExceptions = {
   AccountNotExist(): HttpException {
     return new HttpException(
       {
-        message: "Account does not exist!",
-        error: "AccountNotExist",
-        statusCode: HttpStatus.FORBIDDEN,
+        message: 'Account does not exist!',
+        error: 'AccountNotExist',
+        statusCode: HttpStatus.FORBIDDEN
       },
       HttpStatus.FORBIDDEN
     );
@@ -70,11 +70,11 @@ export const AuthExceptions = {
   AccountNotActive(): HttpException {
     return new HttpException(
       {
-        message: "Account not active!",
-        error: "AccountNotActive",
-        statusCode: HttpStatus.UNAUTHORIZED,
+        message: 'Account not active!',
+        error: 'AccountNotActive',
+        statusCode: HttpStatus.UNAUTHORIZED
       },
       HttpStatus.UNAUTHORIZED
     );
-  },
+  }
 };

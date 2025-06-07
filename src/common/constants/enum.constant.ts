@@ -1,4 +1,4 @@
 export enum AppEnvironment {
-  DEVELOPMENT = "development",
-  PRODUCTION = "production",
+  DEVELOPMENT = 'development',
+  PRODUCTION = 'production'
 }

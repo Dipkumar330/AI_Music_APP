@@ -3,12 +3,10 @@ import { Transform } from "class-transformer";
 import {
   IsNotEmpty,
   IsString,
-  IsOptional,
-  IsBoolean,
   Matches,
 } from "class-validator";
 import { COMMON_MSG } from "src/common/constants/response.constant";
-import { EmailRegex, PasswordRegex } from "src/common/regex/common-regex";
+import { EmailRegex } from "src/common/regex/common-regex";
 export class CreateUserDto {
   @ApiProperty()
   @IsNotEmpty()
@@ -42,13 +40,8 @@ export class CreateUserDto {
 
   @ApiProperty()
   @IsString()
-  @Matches(PasswordRegex, {
-    message: COMMON_MSG.INVALID_PASSWORD_FORMAT,
-  })
+  // @Matches(PasswordRegex, {
+  //   message: COMMON_MSG.INVALID_PASSWORD_FORMAT,
+  // })
   password: string;
-
-  @ApiProperty()
-  @IsOptional()
-  @IsBoolean()
-  isActive: boolean = false;
 }

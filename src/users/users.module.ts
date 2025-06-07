@@ -6,6 +6,7 @@ import { Users, UsersSchema } from "./schemas/user.schema";
 import { LoggerModule } from "src/common/logger/logger.module";
 import { CommonService } from "src/common/services/common.service";
 import { JwtService } from "@nestjs/jwt";
+import { TwilioService } from "src/common/helpers/twilio.service";
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { JwtService } from "@nestjs/jwt";
     LoggerModule,
   ],
   controllers: [UsersController],
-  providers: [UsersService, CommonService, JwtService],
+  providers: [UsersService, CommonService, JwtService, TwilioService],
 })
 export class UsersModule implements OnModuleInit {
   constructor(private readonly userService: UsersService) {}

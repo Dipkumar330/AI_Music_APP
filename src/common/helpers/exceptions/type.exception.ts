@@ -1,12 +1,12 @@
-import { HttpException, HttpStatus } from "@nestjs/common";
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 export const TypeExceptions = {
   NotFoundCommonFunction(message: string): HttpException {
     return new HttpException(
       {
         message: message,
-        error: "Not Found",
-        statusCode: HttpStatus.NOT_FOUND,
+        error: 'Not Found',
+        statusCode: HttpStatus.NOT_FOUND
       },
       HttpStatus.NOT_FOUND
     );
@@ -16,8 +16,8 @@ export const TypeExceptions = {
     return new HttpException(
       {
         message: message,
-        error: "Already Exists",
-        statusCode: HttpStatus.CONFLICT,
+        error: 'Already Exists',
+        statusCode: HttpStatus.CONFLICT
       },
       HttpStatus.CONFLICT
     );
@@ -26,9 +26,9 @@ export const TypeExceptions = {
   InvalidFile(): HttpException {
     return new HttpException(
       {
-        message: "Uploaded file is invalid",
-        error: "InvalidFile",
-        statusCode: HttpStatus.BAD_REQUEST,
+        message: 'Uploaded file is invalid',
+        error: 'InvalidFile',
+        statusCode: HttpStatus.BAD_REQUEST
       },
       HttpStatus.BAD_REQUEST
     );
@@ -37,9 +37,9 @@ export const TypeExceptions = {
   NoTaskFound(): HttpException {
     return new HttpException(
       {
-        message: "No Task Found",
-        error: "InvalidTask",
-        statusCode: HttpStatus.BAD_REQUEST,
+        message: 'No Task Found',
+        error: 'InvalidTask',
+        statusCode: HttpStatus.BAD_REQUEST
       },
       HttpStatus.BAD_REQUEST
     );
@@ -50,7 +50,7 @@ export const TypeExceptions = {
       {
         statusCode: HttpStatus.BAD_REQUEST,
         message: message,
-        error: "Not Found",
+        error: 'Not Found'
       },
       HttpStatus.BAD_REQUEST
     );
@@ -61,7 +61,7 @@ export const TypeExceptions = {
       {
         statusCode: HttpStatus.BAD_GATEWAY,
         message: message,
-        data: {},
+        data: {}
       },
       HttpStatus.BAD_GATEWAY
     );
@@ -72,7 +72,7 @@ export const TypeExceptions = {
       {
         statusCode: HttpStatus.UNAUTHORIZED,
         message: message,
-        data: {},
+        data: {}
       },
       HttpStatus.UNAUTHORIZED
     );
@@ -83,7 +83,7 @@ export const TypeExceptions = {
       {
         statusCode: HttpStatus.PAYMENT_REQUIRED,
         message: message,
-        data: {},
+        data: {}
       },
       HttpStatus.PAYMENT_REQUIRED
     );
@@ -94,9 +94,9 @@ export const TypeExceptions = {
       {
         statusCode: HttpStatus.FORBIDDEN,
         message: message,
-        data: {},
+        data: {}
       },
       HttpStatus.FORBIDDEN
     );
-  },
+  }
 };

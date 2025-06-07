@@ -1,40 +1,35 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  HttpStatus,
-  Res,
-  Req,
-} from "@nestjs/common";
+import { Controller, Get, Post, Body, HttpStatus, Res, Req } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiBearerAuth,
   ApiOkResponse,
   ApiOperation,
   ApiTags,
-} from "@nestjs/swagger";
-import { UsersService } from "./users.service";
-import { CreateUserDto } from "./dto/create-user.dto";
-import { UpdateUserDto } from "./dto/update-user.dto";
-import { RESPONSE_SUCCESS } from "../common/constants/response.constant";
-import { ResponseMessage } from "../common/decorators/response.decorator";
-import { Public } from "../security/auth/auth.decorator";
-import { Request, Response } from "express";
+} from '@nestjs/swagger';
+import { UsersService } from './users.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { RESPONSE_SUCCESS } from '../common/constants/response.constant';
+import { ResponseMessage } from '../common/decorators/response.decorator';
+import { Public } from '../security/auth/auth.decorator';
+import { Request, Response } from 'express';
+import { LoginDto } from 'src/common/dto/common.dto';
+import { VerifyOtpDto } from './dto/verify-otp.dto';
+import { SendOtpDto } from './dto/send-otp.dto';
 
 @Public()
-@Controller("users")
-@ApiTags("User Management")
+@Controller('users')
+@ApiTags('User Management')
 @ApiBearerAuth()
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post("signUp")
+  @Post('signUp')
   @ResponseMessage(RESPONSE_SUCCESS.USER_INSERTED)
   @Public()
   @ApiOperation({
     description: `
-    This API will be used for creating new user using the admin panel..
+    This API will be used for creating new user using the admin panel.
 
     Figma Screen Reference: AP - User 1.0 To 1.6
         
@@ -51,11 +46,11 @@ export class UsersController {
         statusCode: HttpStatus.OK,
         message: RESPONSE_SUCCESS.USER_INSERTED,
         data: {
-          firstName: "string",
-          lastName: "string",
-          gender: "string",
-          email: "string",
-          accessToken: "string",
+          firstName: 'string',
+          lastName: 'string',
+          gender: 'string',
+          email: 'string',
+          accessToken: 'string',
         },
       },
     },
@@ -64,7 +59,7 @@ export class UsersController {
     schema: {
       example: {
         statusCode: HttpStatus.BAD_REQUEST,
-        message: "This email is already registered with us.",
+        message: 'This email is already registered with us.',
         data: {},
       },
     },
@@ -73,21 +68,33 @@ export class UsersController {
     return this.usersService.signUp(body, res);
   }
 
+  @Post('login')
+  @ResponseMessage(RESPONSE_SUCCESS.USER_LOGIN)
+  login(@Body() body: LoginDto, @Res() res: Response) {
+    return this.usersService.login(body, res);
+  }
+
+  @Post('verifyOtp')
+  verifyOtp(@Body() body: VerifyOtpDto, @Res() res: Response) {
+    return this.usersService.verifyOtp(body, res);
+  }
+
   @ApiBearerAuth()
-  @Get("get/:id")
+  @Get('get')
   @ResponseMessage(RESPONSE_SUCCESS.USER_LISTED)
   userDetails(@Req() req: Request, @Res() res: Response) {
     return this.usersService.userDetails(req, res);
   }
 
   @ApiBearerAuth()
-  @Post("update")
+  @Post('update')
   @ResponseMessage(RESPONSE_SUCCESS.USER_UPDATED)
-  update(
-    @Body() body: UpdateUserDto,
-    @Req() req: Request,
-    @Res() res: Response
-  ) {
+  update(@Body() body: UpdateUserDto, @Req() req: Request, @Res() res: Response) {
     return this.usersService.update(body, req, res);
+  }
+
+  @Post('sendOtp')
+  sendOtp(@Body() body: SendOtpDto, @Res() res: Response) {
+    return this.usersService.sendOtp(body, res);
   }
 }
