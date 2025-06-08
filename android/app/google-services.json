@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "525514743495",
+    "project_id": "ai-music-app-41588",
+    "storage_bucket": "ai-music-app-41588.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525514743495:android:c2d8ca4f4e7e9b36f5e8e2",
+        "android_client_info": {
+          "package_name": "com.ai_music.ai_music"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi5vb06S9798dpednz6WB2cJtMfM0-g0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

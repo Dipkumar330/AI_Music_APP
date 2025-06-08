@@ -1,0 +1,17 @@
+diff a/lib/helper/network_manager/api_constant.dart b/lib/helper/network_manager/api_constant.dart	(rejected hunks)
+@@ -44,13 +44,10 @@
+   static double staticLongitude = -84.41362900386731;
+ 
+   // static String get baseDomain => 'http://202.131.117.92:7155/'; // 202 Local
+-  // static String get baseDomain =>
+-  //     'https://backoffice.yashasviipo.com/app-api'; // Client Live
+   static String get baseDomain =>
+-      'https://ipo.yashasvifinvest.com/app-api'; // Client Live
++      'https://backoffice.yashasviipo.com/app-api'; // Client Live
+ 
+-  // static String get imageURI => "https://backoffice.yashasviipo.com/";
+-  static String get imageURI => "https://ipo.yashasvifinvest.com/";
++  static String get imageURI => "https://backoffice.yashasviipo.com/";
+ 
+   static String getValue(ApiType type) {
+     switch (type) {
